@@ -1,8 +1,12 @@
-# user-basic-auth-mongoose
+# basic-auth-mongoose
 
-A Mongoose plugin that provides basic user authentication functionality. This module can be used to supplement any Mongoose Model requiring password-based authentication, and does not have dependencies on any existing authentication middleware.
+basic-auth is a Mongoose plugin that provides traditional password-based user authentication. It can be used to supplement any Mongoose Schema where authentication is required, and does not depend on a single authentication implementation.
 
 ###Installation
+
+basic-auth is available via NPM. To install:
+
+`npm install basic-auth-mongoose`
 
 ###Usage
 
