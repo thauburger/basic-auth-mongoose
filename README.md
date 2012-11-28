@@ -4,10 +4,10 @@ Basic-auth is a [Mongoose](http://mongoosejs.com/) [plugin](http://mongoosejs.co
 
 Basic-auth provides:
 
-- Required `username` and `password` properties
+- `username` and `password` properties added to your schema
 - A simple `authenticate` method to use when signing users into your service
 - Automatic password encryption
-- Framework agnostic authentication and storage. Use it with Express, Passport, or on it's own.
+- Framework agnostic authentication and storage. Use it with Express, Passport, or on its own.
 
 
 ##Installation
