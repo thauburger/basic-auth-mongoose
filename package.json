@@ -1,20 +1,20 @@
 {
-    "name": "user-basic-auth-mongoose"
-  , "description": "A Mongoose plugin for traditional password-based user authentication."
-  , "version": "0.1.0"
-  , "author": "Tom Hauburger <thauburger@gmail.com>"
-  , "keywords": ["mongoose", "user", "basic", "auth", "authentication", "username", "password", "login", "register", "plugin", "mongodb"]
-  , "dependencies": {
-        "mongoose": "3.4.x"
-    }
-  , "devDependencies": {}
-  , "main": "./index.js"
-  , "engines": { "node": ">= 0.6.0" }
-  , "bugs": {
-        "url":"https://github.com/thauburger/basic-auth-mongoose/issues/new"
-    }
-  , "repository": {
-        "type": "git"
-      , "url": "git://github.com/thauburger/basic-auth-mongoose.git"
-    }
+  "name": "user-basic-auth-mongoose",
+  "description": "A Mongoose plugin for traditional password-based user authentication.",
+  "version": "0.1.0",
+  "author": "Tom Hauburger <thauburger@gmail.com>",
+  "keywords": ["mongoose", "user", "basic", "auth", "authentication", "username", "password", "login", "register", "plugin", "mongodb"],
+  "dependencies": {
+    "mongoose": "3.4.x"
+  },
+  "devDependencies": {},
+  "main": "./index.js",
+  "engines": { "node": ">= 0.6.0" },
+  "bugs": {
+    "url":"https://github.com/thauburger/basic-auth-mongoose/issues/new"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thauburger/basic-auth-mongoose.git"
+  }
 }
