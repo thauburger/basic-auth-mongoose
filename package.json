@@ -1,7 +1,7 @@
 {
   "name": "basic-auth-mongoose",
   "description": "Mongoose plugin for password-based user authentication.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Tom Hauburger <thauburger@gmail.com>",
   "keywords": ["mongoose", "user", "basic", "auth", "authentication", "username", "password", "login", "register", "plugin", "mongodb"],
   "dependencies": {},
