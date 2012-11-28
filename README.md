@@ -4,7 +4,7 @@ Basic-auth is a [Mongoose](http://mongoosejs.com/) [plugin](http://mongoosejs.co
 
 Basic-auth provides:
 
-- Required `username` and `password` properties on your Mongoose schema
+- Required `username` and `password` properties
 - A simple `authenticate` method to use when signing users into your service
 - Automatic password encryption
 - Framework agnostic authentication and storage. Use it with Express, Passport, or on it's own.
@@ -18,9 +18,9 @@ Basic-auth provides:
 
 ###Mongoose Plugin
 
-Basic-auth allows you to plugin password-based authentication for any Mongoose schema. Let's say you're working on a site where your basic `User` schema looks like this:
+Basic-auth allows you to add password-based authentication to any Mongoose schema. Let's say you're working on a site where your basic `User` schema is shaping up like so:
 
-````
+````javascript
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
@@ -32,17 +32,16 @@ var userSchema = new mongoose.Schema({
 
 To add authentication functionality, all you need to do is plugin basic-auth, and create your new `User` model:
 
-````
+````javascript
 userSchema.plugin(require('basic-auth'));
-
 var User = mongoose.model('User', userSchema);
 ````
 
 ####Authentication Properties
 
-Plugging in basic-auth will add two required properties on top of your `User` schema: `username` and `password`. Just fill in those credentials when you're creating a user. The user's password will be automatically encrypted for secure storage.
+Plugging in basic-auth will add two required properties on top of your original `User` schema: `username` and `password`. Just fill in those credentials when you're creating a user, and the user's password will be automatically encrypted for secure storage.
 
-````
+````javascript
 var tom = new User({
 	email : 'tom@test.com',
 	first : 'Tom',
@@ -63,14 +62,13 @@ tom.save(function (err, user) {
 
 In addition to the `username` and `password` properties, you'll also get a handy `user.authenticate(password)` method. This method accepts a plain text password, and will return `true` if the password is correct, and `false` otherwise.
 
-````
+````javascript
 User.findOne({'username' : 'toms1234'}, function (err, tom) {
 	if (err) // handle
 	else {
 		tom.authenticate('wrong-password'); // returns false
 		tom.authenticate('secret'); // returns true
 	}
-}
 });
 ````
 
@@ -78,22 +76,21 @@ User.findOne({'username' : 'toms1234'}, function (err, tom) {
 
 Using basic-auth will also give you an `id` property, which will return the auto-generated MongoDB `_id`. To use, simply call:
 
-````
+````javascript
 tom.id  // returns MongoDB _id (e.g. 5A0009284I2)
 ````
 
 ###Options
 
 You can configure the hashing algorithm used to encrypt the user's password. By default, basic-auth uses `'sha256'
-`. To change the encryption method, simply pass in the `encryptionMethod` option when applying the basic-auth plugin:
+`. To change the encryption method, simply pass in the `encryptionMethod` option when applying basic-auth:
 
-````
+````javascript
 var options = { 'encryptionMethod' : 'sha1' };
-
 userSchema.plugin(require('basic-auth', options));
 ````
 
-You are free to choose any of the hashing algorithms made available by Node's [crypto](http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm). 
+You are free to choose any of the hashing algorithms made available by Node's [crypto](http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm) library. 
 Examples are `sha1`, `sha256`,`sha512`,`md5`.
 
 ###Examples
