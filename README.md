@@ -2,9 +2,15 @@
 
 Basic-auth is a [Mongoose](http://mongoosejs.com/) [plugin](http://mongoosejs.com/docs/plugins.html) that provides password-based user authentication for your Mongoose [schema](http://mongoosejs.com/docs/guide.html).
 
-##Installation
+Basic-auth provides:
 
-Basic-auth is available through [NPM](http://npmjs.org/). To install:
+- Required `username` and `password` properties on your Mongoose schema
+- A simple `authenticate` method to use when signing users into your service
+- Automatic password encryption
+- Framework agnostic authentication and storage. Use it with Express, Passport, or on it's own.
+
+
+##Installation
 
 	$ npm install basic-auth-mongoose
 
@@ -34,7 +40,7 @@ var User = mongoose.model('User', userSchema);
 
 ####Authentication Properties
 
-Plugging in basic-auth will add two required properties into your `User` schema: `username` and `password`. Just fill in those credentials when you're creating a user:
+Plugging in basic-auth will add two required properties on top of your `User` schema: `username` and `password`. Just fill in those credentials when you're creating a user. The user's password will be automatically encrypted for secure storage.
 
 ````
 var tom = new User({
@@ -52,7 +58,6 @@ tom.save(function (err, user) {
 	}
 });
 ````
-The user's password will be automatically encrypted when the user is saved.
 
 ####Methods
 
@@ -79,7 +84,7 @@ tom.id  // returns MongoDB _id (e.g. 5A0009284I2)
 
 ###Options
 
-In version 0.1.0, you can configure the hashing algorithm used to encrypt the user's password. By default, basic-auth uses `'sha256'
+You can configure the hashing algorithm used to encrypt the user's password. By default, basic-auth uses `'sha256'
 `. To change the encryption method, simply pass in the `encryptionMethod` option when applying the basic-auth plugin:
 
 ````
@@ -88,7 +93,8 @@ var options = { 'encryptionMethod' : 'sha1' };
 userSchema.plugin(require('basic-auth', options));
 ````
 
-You are free to choose any of the hashing algorithms made available by Node's [crypto](http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm). Examples are `sha1`, `sha256`,`sha512`,`md5`.
+You are free to choose any of the hashing algorithms made available by Node's [crypto](http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm). 
+Examples are `sha1`, `sha256`,`sha512`,`md5`.
 
 ###Examples
 
@@ -96,10 +102,9 @@ A full example of using basic-auth for a simple login / registration system is c
 
 ###Contributions
 
-Inspired by saintedlama's passport-local-mongoose module.
+Inspired by [saintedlama](https://github.com/saintedlama/passport-local-mongoose)'s passport-local-mongoose module.
 
-Also, thanks to alexyoung for his Nodepad tutorial on Daily JS.
-This module reuses some of the password encryption techniques found there.
+Also, thanks to [alexyoung](https://github.com/alexyoung) for his [Nodepad tutorial](http://dailyjs.com/2010/12/06/node-tutorial-5/) on Daily JS. This module reuses some of the password encryption techniques found there.
 
 ###License (GPL)
 
