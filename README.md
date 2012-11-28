@@ -35,7 +35,7 @@ var userSchema = new mongoose.Schema({
 To add authentication functionality, all you need to do is plugin basic-auth, and create your new `User` model:
 
 ````javascript
-userSchema.plugin(require('basic-auth'));
+userSchema.plugin(require('basic-auth-mongoose'));
 var User = mongoose.model('User', userSchema);
 ````
 
