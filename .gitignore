@@ -1,14 +1,9 @@
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-logs
-results
+#NPM
 
 npm-debug.log
+node_modules
+
+#OSX
+
+.DS_Store
+
