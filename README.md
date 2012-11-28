@@ -14,6 +14,8 @@ Basic-auth provides:
 
 	$ npm install basic-auth-mongoose
 
+Since this is a Mongoose plugin, there is a development dependency of Mongoose > 3.4.x.
+
 ##Usage
 
 ###Mongoose Plugin
