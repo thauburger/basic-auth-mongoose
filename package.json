@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "author": "Tom Hauburger <thauburger@gmail.com>",
   "keywords": ["mongoose", "user", "basic", "auth", "authentication", "username", "password", "login", "register", "plugin", "mongodb"],
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "mongoose": "3.4.x"
   },
-  "devDependencies": {},
   "main": "./index.js",
   "engines": { "node": ">= 0.6.0" },
   "bugs": {
